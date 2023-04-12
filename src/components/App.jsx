@@ -17,7 +17,6 @@ import {
   Container,
   Title,
   ContactsTitle,
-  // FindContactsTitle,
   TitleWrap,
 } from 'components/App.styled';
 
@@ -59,7 +58,7 @@ export default function App() {
         </AnimationTada>
 
         <ContactsTitle>Contacts</ContactsTitle>
-        {/* <FindContactsTitle>Find contacts by name</FindContactsTitle> */}
+
         <Filter />
         {contactsItems.length ? <ContactList /> : <p>No any contacts</p>}
       </div>
