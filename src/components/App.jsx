@@ -6,6 +6,8 @@ import { Toaster, toast } from 'react-hot-toast';
 import { fetchContacts } from 'redux/contacts/operations';
 import { useContacts, useLoading, useError } from 'hooks';
 
+import { FaAddressCard } from 'react-icons/fa';
+
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
@@ -15,9 +17,11 @@ import {
   Container,
   Title,
   ContactsTitle,
-  FindContactsTitle,
-  TadaDiv,
+  // FindContactsTitle,
+  TitleWrap,
 } from 'components/App.styled';
+
+import { AnimationTada } from 'components/Animation/Animation.styled';
 
 export default function App() {
   const contactsItems = useContacts();
@@ -45,13 +49,17 @@ export default function App() {
       {isLoading && <Spinner />}
 
       <div>
-        <Title>Phonebook</Title>
-        <TadaDiv>
+        <TitleWrap>
+          <FaAddressCard size={32} color={'#396fa5'} />
+          <Title>Phonebook</Title>
+        </TitleWrap>
+
+        <AnimationTada>
           <ContactForm />
-        </TadaDiv>
+        </AnimationTada>
 
         <ContactsTitle>Contacts</ContactsTitle>
-        <FindContactsTitle>Find contacts by name</FindContactsTitle>
+        {/* <FindContactsTitle>Find contacts by name</FindContactsTitle> */}
         <Filter />
         {contactsItems.length ? <ContactList /> : <p>No any contacts</p>}
       </div>

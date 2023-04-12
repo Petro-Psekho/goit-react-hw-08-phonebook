@@ -1,13 +1,4 @@
 import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
-
-import { tada } from 'react-animations';
-
-const tadaAnimation = keyframes`${tada}`;
-
-export const TadaDiv = styled.div`
-  animation: 1s ${tadaAnimation};
-`;
 
 export const Container = styled.div`
   display: flex;
@@ -19,15 +10,25 @@ export const Container = styled.div`
   color: #4e4e4e;
 `;
 
-export const Title = styled.h1`
+export const TitleWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   margin-bottom: 20px;
+`;
+
+export const Title = styled.h1`
   font-size: 30px;
-  color: #4e4e4e;
+  color: #396fa5;
+  margin-left: 12px;
 `;
 
 export const ContactsTitle = styled.h2`
-  font-size: 30px;
-  color: #4e4e4e;
+  margin-bottom: 12px;
+  text-align: center;
+  font-size: 26px;
+  color: #396fa5;
 `;
 
 export const FindContactsTitle = styled.h3`
