@@ -7,7 +7,7 @@ import { useContacts } from 'hooks';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { saveContact } from 'redux/contacts/operations';
+import { addContact } from 'redux/contacts/operations';
 
 import {
   ErrMessage,
@@ -45,7 +45,7 @@ export const ContactForm = () => {
     );
     if (currentName) return toast.error(`${data.name} is already in contacts`);
 
-    dispatch(saveContact(data));
+    dispatch(addContact(data));
     toast.success(`${data.name} added to your phonebook`);
   };
 
