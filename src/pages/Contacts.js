@@ -4,7 +4,7 @@ import { Toaster, toast } from 'react-hot-toast';
 // import { Helmet } from 'react-helmet';
 // import { TaskList } from 'components/TaskList/TaskList';
 
-import { fetchTasks } from 'redux/tasks/operations';
+import { fetchContacts } from 'redux/contacts/operations';
 // import { selectLoading } from 'redux/tasks/selectors';
 import { useContacts, useLoading, useError } from 'hooks';
 
@@ -32,7 +32,7 @@ export default function Contacts() {
   const error = useError();
 
   useEffect(() => {
-    dispatch(fetchTasks());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   useEffect(() => {
