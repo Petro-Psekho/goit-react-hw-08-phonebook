@@ -19,12 +19,12 @@ export const ListItem = styled.li`
   } */
 `;
 
-export const ContactItem = styled.p`
+export const ContactItem = styled.div`
   font-size: 18px;
   color: #4e4e4e;
 `;
 
-export const ContactItemName = styled.div`
+export const ContactItemName = styled.p`
   font-size: 20px;
   font-weight: 600;
 `;
@@ -37,7 +37,7 @@ export const ContactItemPhone = styled.div`
   color: #acaaaa;
 `;
 
-export const ContactItemNumber = styled.div`
+export const ContactItemNumber = styled.p`
   margin-left: 10px;
 `;
 
