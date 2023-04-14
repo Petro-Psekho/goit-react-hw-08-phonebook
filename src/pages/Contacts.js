@@ -15,6 +15,7 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { Spinner } from 'components/Spinner/Spinner';
 import BasicModal from 'components/Modal/Modal';
+import FormDialog from 'components/ModalFormDialog/MoadalFormDialog';
 
 import {
   Container,
@@ -23,9 +24,9 @@ import {
   TitleWrap,
 } from 'components/App.styled';
 
-import { AnimationTada } from 'components/Animation/Animation.styled';
+// import { AnimationTada } from 'components/Animation/Animation.styled';
 
-export default function Contacts() {
+export default function Contacts({ handleClose }) {
   const dispatch = useDispatch();
   const contactsItems = useContacts();
   // const isLoading = useSelector(selectLoading);
@@ -51,20 +52,21 @@ export default function Contacts() {
       {isLoading && <Spinner />}
 
       <div>
-        <BasicModal>
+        <FormDialog>
           <ContactForm />
+        </FormDialog>
+
+        <BasicModal handleClose={handleClose}>
+          <ContactForm handleClose={handleClose} />
         </BasicModal>
         <TitleWrap>
           <FaAddressCard size={32} color={'#396fa5'} />
           <Title>Phonebook</Title>
         </TitleWrap>
-
         {/* <AnimationTada>
           <ContactForm />
         </AnimationTada> */}
-
         <ContactsTitle>Contacts</ContactsTitle>
-
         <Filter />
         {contactsItems.length ? <ContactList /> : <p>No any contacts</p>}
       </div>
