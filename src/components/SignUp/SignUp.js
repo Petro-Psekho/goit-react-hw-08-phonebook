@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -34,9 +36,19 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+  const dispatch = useDispatch();
+
   const handleSubmit = event => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+
+    dispatch(
+      register({
+        name: data.get('firstName'),
+        email: data.get('email'),
+        password: data.get('password'),
+      })
+    );
     console.log({
       email: data.get('email'),
       password: data.get('password'),
