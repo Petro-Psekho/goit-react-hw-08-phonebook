@@ -14,6 +14,7 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { Spinner } from 'components/Spinner/Spinner';
+import BasicModal from 'components/Modal/Modal';
 
 import {
   Container,
@@ -50,14 +51,17 @@ export default function Contacts() {
       {isLoading && <Spinner />}
 
       <div>
+        <BasicModal>
+          <ContactForm />
+        </BasicModal>
         <TitleWrap>
           <FaAddressCard size={32} color={'#396fa5'} />
           <Title>Phonebook</Title>
         </TitleWrap>
 
-        <AnimationTada>
+        {/* <AnimationTada>
           <ContactForm />
-        </AnimationTada>
+        </AnimationTada> */}
 
         <ContactsTitle>Contacts</ContactsTitle>
 
