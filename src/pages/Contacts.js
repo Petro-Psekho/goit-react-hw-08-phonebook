@@ -1,37 +1,41 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Toaster, toast } from 'react-hot-toast';
-// import { Helmet } from 'react-helmet';
-// import { TaskList } from 'components/TaskList/TaskList';
+import Button from '@mui/material/Button';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 import { fetchContacts } from 'redux/contacts/operations';
-// import { selectLoading } from 'redux/tasks/selectors';
 import { useContacts, useLoading, useError } from 'hooks';
-
-import { FaAddressCard } from 'react-icons/fa';
 
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { Spinner } from 'components/Spinner/Spinner';
-import BasicModal from 'components/Modal/Modal';
+
 import FormDialog from 'components/ModalFormDialog/MoadalFormDialog';
 
 import {
   Container,
-  Title,
+  ContactsTitleWrap,
   ContactsTitle,
-  TitleWrap,
 } from 'components/App.styled';
 
-// import { AnimationTada } from 'components/Animation/Animation.styled';
+export default function Contacts() {
+  const [open, setOpen] = useState(false);
 
-export default function Contacts({ handleClose }) {
-  const dispatch = useDispatch();
   const contactsItems = useContacts();
-  // const isLoading = useSelector(selectLoading);
   const isLoading = useLoading();
   const error = useError();
+
+  const dispatch = useDispatch();
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -48,25 +52,29 @@ export default function Contacts({ handleClose }) {
   }, [error]);
 
   return (
-    <Container>
+    <Container style={{ display: 'block' }}>
       {isLoading && <Spinner />}
 
       <div>
-        <FormDialog>
-          <ContactForm />
-        </FormDialog>
+        <ContactsTitleWrap>
+          <ContactsTitle>Contacts</ContactsTitle>
+          <Button
+            style={{ height: '30px' }}
+            variant="outlined"
+            onClick={handleClickOpen}
+          >
+            <AiOutlinePlus
+              size={14}
+              color={'#0d6efd'}
+              style={{ marginRight: '10px' }}
+            />
+            Add Contact
+          </Button>
+          <FormDialog isOpen={open} onClose={handleClose}>
+            <ContactForm handleClose={handleClose} />
+          </FormDialog>
+        </ContactsTitleWrap>
 
-        <BasicModal handleClose={handleClose}>
-          <ContactForm handleClose={handleClose} />
-        </BasicModal>
-        <TitleWrap>
-          <FaAddressCard size={32} color={'#396fa5'} />
-          <Title>Phonebook</Title>
-        </TitleWrap>
-        {/* <AnimationTada>
-          <ContactForm />
-        </AnimationTada> */}
-        <ContactsTitle>Contacts</ContactsTitle>
         <Filter />
         {contactsItems.length ? <ContactList /> : <p>No any contacts</p>}
       </div>
@@ -74,12 +82,3 @@ export default function Contacts({ handleClose }) {
     </Container>
   );
 }
-
-// <>
-//   <Helmet>
-//     <title>Your tasks</title>
-//   </Helmet>
-//   <ContactForm />
-//   <div>{isLoading && 'Request in progress...'}</div>
-//   <TaskList />
-// </>

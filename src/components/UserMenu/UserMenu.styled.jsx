@@ -9,5 +9,8 @@ export const Wrapper = styled.div`
 export const Username = styled.p`
   display: flex;
   align-items: center;
-  gap: 12px;
+  margin: 0;
+
+  color: #1976d2;
+  /* gap: 12px; */
 `;

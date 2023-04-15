@@ -1,11 +1,14 @@
+import * as React from 'react';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-hot-toast';
 import { useContacts } from 'hooks';
-import FormDialog from 'components/ModalFormDialog/MoadalFormDialog';
+// import FormDialog from 'components/ModalFormDialog/MoadalFormDialog';
 
-import { Button } from 'react-bootstrap';
+import Button from '@mui/material/Button';
+
+// import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { addContact } from 'redux/contacts/operations';
@@ -18,7 +21,7 @@ import {
   SubmitBtn,
 } from 'components/ContactForm/ContactForm.styled';
 
-export const ContactForm = () => {
+export const ContactForm = ({ handleClose }) => {
   const dispatch = useDispatch();
   const contactsItems = useContacts();
   const {
@@ -47,6 +50,7 @@ export const ContactForm = () => {
     if (currentName) return toast.error(`${data.name} is already in contacts`);
 
     dispatch(addContact(data));
+    handleClose();
     toast.success(`${data.name} added to your phonebook`);
   };
 
@@ -88,12 +92,13 @@ export const ContactForm = () => {
       {errors.exampleRequired && <p>This field is required</p>}
 
       <SubmitBtn>
-        <Button type="submit" variant="outline-primary">
+        <Button type="button" variant="text" onClick={handleClose}>
+          Cancel
+        </Button>
+        <Button type="submit" variant="text">
           Add Contact
         </Button>
       </SubmitBtn>
-
-      {/* <SubmitBtn type="submit">Add Contact</SubmitBtn> */}
     </FormWrap>
   );
 };

@@ -1,3 +1,6 @@
+import * as React from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
@@ -9,10 +12,18 @@ export const UserMenu = () => {
 
   return (
     <Wrapper>
-      <Username>Welcome, {user.name}</Username>
-      <button type="button" onClick={() => dispatch(logOut())}>
-        Logout
-      </button>
+      <Stack spacing={2} direction="row">
+        <Username>
+          Welcome, <b>{user.name}</b>
+        </Username>
+        <Button
+          style={{ height: '30px' }}
+          variant="outlined"
+          onClick={() => dispatch(logOut())}
+        >
+          LogOut
+        </Button>
+      </Stack>
     </Wrapper>
   );
 };

@@ -25,8 +25,10 @@ export const ContactItem = styled.div`
 `;
 
 export const ContactItemName = styled.p`
+  margin-bottom: 0;
   font-size: 20px;
   font-weight: 600;
+  color: #396fa5;
 `;
 
 export const ContactItemPhone = styled.div`
@@ -34,11 +36,12 @@ export const ContactItemPhone = styled.div`
   align-items: center;
 
   font-size: 16px;
-  color: #acaaaa;
+  color: #8f8f8f;
 `;
 
 export const ContactItemNumber = styled.p`
   margin-left: 10px;
+  margin-bottom: 0;
 `;
 
 export const DeleteContactItem = styled.div`

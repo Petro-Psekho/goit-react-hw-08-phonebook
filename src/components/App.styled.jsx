@@ -6,8 +6,17 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+
   /* font-size: 20px; */
   color: #4e4e4e;
+`;
+
+export const ContactsTitleWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  padding: 0, 20px;
 `;
 
 export const TitleWrap = styled.div`
@@ -25,9 +34,8 @@ export const Title = styled.h1`
 `;
 
 export const ContactsTitle = styled.h2`
-  margin-bottom: 12px;
-  text-align: center;
-  font-size: 26px;
+  padding-left: 14px;
+  font-size: 22px;
   color: #396fa5;
 `;
 
