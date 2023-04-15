@@ -92,7 +92,12 @@ export const ContactForm = ({ handleClose }) => {
       {errors.exampleRequired && <p>This field is required</p>}
 
       <SubmitBtn>
-        <Button type="button" variant="text" onClick={handleClose}>
+        <Button
+          // style={{ marginRight: 6 }}
+          type="button"
+          variant="text"
+          onClick={handleClose}
+        >
           Cancel
         </Button>
         <Button type="submit" variant="text">

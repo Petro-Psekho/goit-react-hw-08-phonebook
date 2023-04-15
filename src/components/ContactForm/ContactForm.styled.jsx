@@ -10,8 +10,7 @@ export const ErrMessage = styled.p`
 `;
 
 export const FormWrap = styled.form`
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 20px 30px;
 `;
 
 export const FormInput = styled.input`
@@ -32,6 +31,5 @@ export const InputName = styled.label`
 
 export const SubmitBtn = styled.div`
   display: flex;
-  justify-content: end;
-  margin-top: 20px;
+  justify-content: space-between;
 `;
