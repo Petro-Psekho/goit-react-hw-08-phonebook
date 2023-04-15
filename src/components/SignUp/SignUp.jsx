@@ -6,13 +6,13 @@ import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { LinkSignIn } from 'components/SignUp/SignUp.styled';
 
 function Copyright(props) {
   return (
@@ -23,9 +23,13 @@ function Copyright(props) {
       {...props}
     >
       {'Copyright © '}
-      <Link color="inherit" href="https://www.linkedin.com/in/petro-psekho/">
+      <LinkSignIn
+        // color="inherit"
+        target="_blank"
+        to="https://www.linkedin.com/in/petro-psekho/"
+      >
         Petro Psekho
-      </Link>{' '}
+      </LinkSignIn>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -119,9 +123,9 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/login" variant="body2">
+                <LinkSignIn to="/login" variant="body2">
                   Already have an account? Sign in
-                </Link>
+                </LinkSignIn>
               </Grid>
             </Grid>
           </Box>
