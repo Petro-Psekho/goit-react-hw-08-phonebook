@@ -10,6 +10,7 @@ export const Layout = () => {
         maxWidth: 960,
         margin: '0 auto',
         padding: '0 16px',
+        minHeight: '100vh',
         backgroundColor: '#f3f6f9',
       }}
     >
